@@ -3,7 +3,7 @@ This repository hosts a TLM electromagnetic field solver suitable for simulating
 
 # How JO-TLM-Simulator works ?
 
-# What is JO-TLM-Simulator is capable of doing at present ?
+# What the present released JO-TLM-Simulator is capable of achieving ?
 
 # Continued developments
 
