@@ -1,4 +1,4 @@
-# Compilation instructions
+# Compilation options
 
 ## Using Make on LINUX/WINDOWS Terminal
 
