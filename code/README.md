@@ -2,4 +2,4 @@
 
 ## Using Make on LINUX/WINDOWS Terminal
 
-## USING an IDE in a windows terminal
+## USING an IDE in a WINDOWS terminal
