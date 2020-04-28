@@ -1,6 +1,6 @@
 There are 4 main directories in JO-TLM-Simulator directory
 src:        contains the source code (.cpp files )
-Lib:        contains the supporting libraries 
+Lib:        contains the supporting libraries and .h files
 Analytics:  contains the MATLAB and Python scripts
 Results:    the default folder for which all simulations results are stored to be further analysed by the analytics scripts.
 
