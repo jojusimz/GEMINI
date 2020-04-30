@@ -6,9 +6,12 @@ This software was developed to facilitate my PhD research. Through it I implemen
 The implementation and approach taken to mesh and solve are simple and can be easily understood my researchers familiar with the TLM/Finite difference methods. The novelty however is the stable PML algorithms implemented the details of which are published in my journal papers  (See reference list [1]-[5]).
 
 
-## TLM Electromagnetic Field Simulation Basics:
+## The TLM Method:
 
 ## How GEMINI Works: 
+
+![image](https://user-images.githubusercontent.com/60849864/80769170-47641600-8b44-11ea-8d59-663aa1f3dc68.png)
+
 
 ## Features:
 
