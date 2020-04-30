@@ -1,4 +1,4 @@
-# JO-TLM-Simulator
+# DASH
 This repository hosts a TLM electromagnetic field solver suitable for simulating E and H field interactions in prescribed 2D and 3D cubic geometries discretized with a uniform mesh. 
 
 This software was developed to facilitate my PhD research. Through it I was able to formulate novel PML algorithms and benchmark these against existing published methods. I have now decided to release the source code as it may be useful to any researcher interested in simulating similar geometries or wanting to build on the existing work. 
@@ -7,7 +7,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 
 # TLM Electromagnetic Field Simulation Basics
 
-# How JO-TLM-Simulator Works ?
+# How DASH Works ?
 
 # Features ?
 
