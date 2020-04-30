@@ -1,0 +1,7 @@
+To do lists
+  Priority lists
+    1.  Major refactoring
+    2.  Major code restrucutring with inheritance relationship introduced between 3D nodes types
+    3.  Improve code optimization
+    4.  Complete Compute_far-field()
+  
