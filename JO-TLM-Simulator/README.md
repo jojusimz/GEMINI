@@ -1,3 +1,8 @@
+# JO-TLM-SIMULATOR : A Time Domain TLM Solver For Electromagnetic Simulations
+The JO-TLM-SIMULATOR is an open Source uniform structured mesh TLM code for electromagnetic simulations. It was developed during my PhD program at the University of Nottingham and was used to facilitate the research carried out.
+
+## Code Features
+
 There are 4 main directories in JO-TLM-Simulator 
 
  __src__:          _contains the source code (.cpp files )_
