@@ -22,9 +22,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 
 **Author**: Jomiloju Odeyemi
 
-**Contact me** : 
-
-email: simi.odeyemi@gmail.com
+**Email**: simi.odeyemi@gmail.com
 
 https://www.linkedin.com/in/jomiloju-odeyemi/
 
