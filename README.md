@@ -3,7 +3,7 @@
 - [How GEMINI Works](#how-gemini-works)
 - [Features](#features)
 - [C++ Source Code Features](#c-source-code-features)
-- [Geometry/Material Features](#geometry-material-features)
+- [Geometry/Material Features](#geometrymaterial-features)
 - [Getting Setup](#getting-setup)
   * [Building GEMINI from source on Linux / Windows (MSYS)](#building-gemini-from-source-on-linux--windows-msys)
 - [Publications Featuring GEMINI](#publications-featuring-gemini)
