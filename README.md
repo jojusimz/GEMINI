@@ -32,7 +32,7 @@ https://www.researchgate.net/profile/Jomiloju_Odeyemi
 # How GEMINI Works
 
 
-![image](https://user-images.githubusercontent.com/60849864/80827843-41ba0f00-8bdc-11ea-8300-b4c75c245d8c.png)
+![image](https://user-images.githubusercontent.com/60849864/80833434-6d41f700-8be6-11ea-800b-de9427535782.png)
 
 
 # Features
