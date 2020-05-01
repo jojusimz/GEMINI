@@ -1,6 +1,6 @@
 **CONTENT**
 
-- [GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SOLVER DEVELOPED IN C++](#gemini-a-time-domain-tlm-electromagnetic-field-solver-developed-in-c)
+- [GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SIMULATOR DEVELOPED IN C++](#gemini-a-time-domain-tlm-electromagnetic-field-simulator-developed-in-c)
 - [The TLM Method](#the-tlm-method)
 - [How GEMINI Works](#how-gemini-works)
 - [Features](#features)
@@ -13,7 +13,7 @@
 
 <!-- toc -->
 
-# GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SOLVER DEVELOPED IN C++
+# GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SIMULATOR DEVELOPED IN C++
 
 This repository hosts a C++ TLM electromagnetic field solver suitable for simulating E and H field interactions in prescribed 2D and 3D cubic geometries discretized with a uniform mesh. 
 
