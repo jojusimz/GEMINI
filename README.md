@@ -24,7 +24,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
   
   Compilation Instructions
   
-  1. **Checklist**
+  1. **CHECKLIST**
   
    * Msys terminal ( Mandatory for Windows )
    * g++ compiler ( Mandatory )
