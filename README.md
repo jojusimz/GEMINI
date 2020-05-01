@@ -33,7 +33,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
   2.  clone GEMINI repository
   
       ```cd folder/to/clone-into/```
-      ```git clone https://github.com/gittower/GEMINI.git```
+      ```git clone https://github.com/jojusimz/GEMINI.git```
   
   3.  Navigate to GEMINI source code directory and Create a results directory 
   
