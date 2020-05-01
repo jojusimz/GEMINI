@@ -26,31 +26,31 @@ The implementation and approach taken to mesh and solve are simple and can be ea
   
   1. **CHECKLIST**
   
-   * Msys terminal ( Mandatory for Windows )
-   * g++ compiler ( Mandatory )
-   * MATLAB or Python to run Analytic scripts on Results ( Mandatory )
+     * Msys terminal ( Mandatory for Windows )
+     * g++ compiler ( Mandatory )
+     * MATLAB or Python to run Analytic scripts on Results ( Mandatory )
   
   2.  **START** BASH (Linux) / MSYS shell ( Windows )
     
   3.  **NAVIGATE** to project folder and **CLONE** GEMINI repository to
   
-      ```cd folder/to/clone-into/```
+        ```cd folder/to/clone-into/```
       
-      ```git clone https://github.com/jojusimz/GEMINI.git```
-  
+        ```git clone https://github.com/jojusimz/GEMINI.git```
+    
   4.  **NAVIGATE** to GEMINI source code directory and **CREATE** a results directory 
   
-       ```cd src```
+         ```cd src```
        
-       ```mkdir GEMINI_results```
+         ```mkdir GEMINI_results```
   
   5.  **BUILD** the source code to executable software 
     
-      ``` make ```
+        ``` make ```
       
   6.  **RUN** the executable
   
-      ``` .\simulate_GEMINI ```
+        ``` .\simulate_GEMINI ```
   
 ## Reference List featuring GEMINI:
 1.	_J. Odeyemi, A. Vukovic, T. Benson, P. Sewell, “An improved PML implementation in the transmission line method,” IET 10th International Conference on Computational Electromagnetics, June 2019._ 
