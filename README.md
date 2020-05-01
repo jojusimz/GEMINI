@@ -30,7 +30,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
      * g++ compiler ( Mandatory )
      * MATLAB or Python to run Analytic scripts on Results ( Mandatory )
   
-  2.  **START** BASH (Linux) / MSYS shell ( Windows )
+  2.  **START** BASH terminal (Linux) / MSYS shell ( Windows )
     
   3.  **NAVIGATE** to project folder and **CLONE** GEMINI repository to
   
