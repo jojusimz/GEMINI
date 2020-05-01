@@ -38,7 +38,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
       
       ```git clone https://github.com/jojusimz/GEMINI.git```
   
-  4.  **NAVIGATE** to GEMINI source code directory and **CREATE a results directory 
+  4.  **NAVIGATE** to GEMINI source code directory and **CREATE** a results directory 
   
        ```cd src```
        
