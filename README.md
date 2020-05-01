@@ -95,23 +95,23 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         
 # Geometry Features
 
-The following material/geometrical features included in this package as a default:
+The following material/geometrical features are the insertable features in the current package:
 
-  * Capacitive iris
+  * Waveguide capacitive iris
   
   * Dipole Antenna
   
   * PEC cube 
   
-  * Frequency Selective Surface : Square Aperture and Jerusalem Cross FSS
+  * Frequency Selective Surface : Square Aperture FSS and Jerusalem Cross FSS
   
   * Dielectric substrate.
   
 The insertion of new features is straightforward and can be achieved by a combination of the class_methods:
 
-   *  get_coordinate_iD (x,y,z)
+   *  Mesh_handler.get_coordinate_iD (x,y,z)
    
-   *  Set_material ( material_parameter_identifier)
+   *  Mesh_handler.Set_material ( material_parameter_identifier)
    
 For more info on this feature please contact me as this may not be obvious to the novice user.
 
