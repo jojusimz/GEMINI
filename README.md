@@ -5,7 +5,6 @@ This repository hosts a C++ TLM electromagnetic field solver suitable for simula
 This software was developed to facilitate my PhD research. Through it I implemented formulations of novel PML algorithms and benchmarked these against existing published methods. I have now decided to release the source code as it may be useful to any researcher interested in simulating similar geometries or wanting to build on the existing work. 
 The implementation and approach taken to mesh and solve are simple and can be easily understood my researchers familiar with the TLM/Finite difference methods. The novelty however is the stable PML algorithms implemented the details of which are published in my journal papers  (See reference list [1]-[5]).
 
-
 ## The TLM Method:
 
 ## How GEMINI Works: 
