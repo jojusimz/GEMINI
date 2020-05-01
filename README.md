@@ -3,7 +3,7 @@
 - [How GEMINI Works](#how-gemini-works)
 - [Features](#features)
 - [C++ Source Code Features](#c-source-code-features)
-- [Geometry Features](#geometry-features)
+- [Geometry/Material Features](#geometry-material-features)
 - [Getting Setup](#getting-setup)
   * [Building GEMINI from source on Linux / Windows (MSYS)](#building-gemini-from-source-on-linux--windows-msys)
 - [Publications Featuring GEMINI](#publications-featuring-gemini)
@@ -95,7 +95,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
             
         * Additon of new Geometry/Features easily achieved via class methods interface.
         
-# Geometry/ Material Features
+# Geometry/Material Features
 
 The following material/geometrical features are the insertable in the computational domain:
 
