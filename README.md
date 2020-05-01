@@ -6,7 +6,7 @@
 - [Geometry Features](#geometry-features)
 - [Getting Setup](#getting-setup)
   * [Building GEMINI from source on Linux / Windows (MSYS)](#building-gemini-from-source-on-linux--windows-msys)
-- [Reference List featuring GEMINI](#reference-list-featuring-gemini)
+- [Publications Featuring GEMINI](#publications-featuring-gemini)
 
 <!-- toc -->
 
@@ -151,7 +151,7 @@ For more info on this feature please contact me as this may not be obvious to th
   
         ``` .\simulate_GEMINI ```
   
-# Reference List featuring GEMINI
+# Publications Featuring GEMINI
 1.	_J. Odeyemi, A. Vukovic, T. Benson, P. Sewell, “An improved PML implementation in the transmission line method,” IET 10th International Conference on Computational Electromagnetics, June 2019._ 
 
 2.	_J. Odeyemi, A. Vukovic, T. Benson, P. Sewell, “Stretched-Coordinate PML in 2D TLM simulations,” IET Science, Measurement and Technology, vol.14, no.3, pp. 272-277, 2020._
