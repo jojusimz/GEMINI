@@ -73,17 +73,17 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         
         * Scalable: Addition of new features
         
-   * Portable 
+   * Portable to Linux / Windows platforms
    
    * Parallel/Sequential mode
    
    * Key features:
    
-        * Sim_handler class
+        * <Sim_handler> : a wrapper class which handles the whole simulation process
         
-        * Mesh_handler class
+        * <Mesh_handler>: a wrapper class for handling a matrix of TLM nodes
         
-        * Sim/Model Parser function
+        * sim_parse_function() : a function defined to parse simulation data from an external file to the sim_handler object instance
         
             * Simulation/Model specification defined by user in a .csv file.
             
@@ -111,7 +111,7 @@ The insertion of new features is straightforward and can be achieved by a combin
 
    *  Mesh_handler.get_coordinate_iD (x,y,z)
    
-   *  Mesh_handler.Set_material ( material_parameter_identifier)
+   *  Mesh_handler.Set_material (material_parameter_identifier)
    
 For more info on this feature please contact me as this may not be obvious to the novice user.
 
