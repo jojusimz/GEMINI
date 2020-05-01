@@ -35,18 +35,20 @@ The implementation and approach taken to mesh and solve are simple and can be ea
   3.  **NAVIGATE** to project folder and **CLONE** GEMINI repository to
   
       ```cd folder/to/clone-into/```
+      
       ```git clone https://github.com/jojusimz/GEMINI.git```
   
-  3.  **NAVIGATE** to GEMINI source code directory and **CREATE a results directory 
+  4.  **NAVIGATE** to GEMINI source code directory and **CREATE a results directory 
   
        ```cd src```
+       
        ```mkdir GEMINI_results```
   
-  4.  **BUILD** the source code to executable software 
+  5.  **BUILD** the source code to executable software 
     
       ``` make ```
       
-  4.  **RUN** the executable
+  6.  **RUN** the executable
   
       ``` .\simulate_GEMINI ```
   
