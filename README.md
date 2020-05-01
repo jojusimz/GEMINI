@@ -8,8 +8,6 @@
   * [Building GEMINI from source on Linux / Windows (MSYS)](#building-gemini-from-source-on-linux---windows--msys-)
 - [Reference List featuring GEMINI:](#reference-list-featuring-gemini-)
 
-<small><i><a href='https://guides.github.com/features/mastering-markdown/#examples/'>Table of contents generated with markdown-toc</a></i></small>
-
 <!-- toc -->
 
 # GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SOLVER DEVELOPED IN C++
