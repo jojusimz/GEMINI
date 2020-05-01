@@ -10,8 +10,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 
 ## How GEMINI Works: 
 
-![image](https://user-images.githubusercontent.com/60849864/80769170-47641600-8b44-11ea-8d59-663aa1f3dc68.png)
-
+![image](https://user-images.githubusercontent.com/60849864/80803483-5087ce00-8baa-11ea-938f-0d0b2f270edc.png)
 
 ## Features:
 
