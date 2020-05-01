@@ -24,27 +24,29 @@ The implementation and approach taken to mesh and solve are simple and can be ea
   
   Compilation Instructions
   
-  1. Checklist
+  1. **Checklist**
   
    * Msys terminal ( Mandatory for Windows )
    * g++ compiler ( Mandatory )
    * MATLAB or Python to run Analytic scripts on Results ( Mandatory )
   
-  2.  clone GEMINI repository
+  2.  **START** BASH (Linux) / MSYS shell ( Windows )
+    
+  3.  **NAVIGATE** to project folder and **CLONE** GEMINI repository to
   
       ```cd folder/to/clone-into/```
       ```git clone https://github.com/jojusimz/GEMINI.git```
   
-  3.  Navigate to GEMINI source code directory and Create a results directory 
+  3.  **NAVIGATE** to GEMINI source code directory and **CREATE a results directory 
   
        ```cd src```
        ```mkdir GEMINI_results```
   
-  4.  Build the source code to executable software 
+  4.  **BUILD** the source code to executable software 
     
       ``` make ```
       
-  4.  Run the executable
+  4.  **RUN** the executable
   
       ``` .\simulate_GEMINI ```
   
