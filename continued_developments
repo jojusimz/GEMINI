@@ -1,8 +1,11 @@
 To do lists
-  Priority lists
-    1.  Major refactoring
+  Primary lists
+    1.  Major refactoring needed
     2.  Major code restrucutring with inheritance relationship introduced between 3D nodes types
-    3.  Improve code optimization
-    4.  Complete Compute_far-field()
-    5.  Introduce non-uniform mesh discretization
+    3.  Optimize code and improve memory/ run time effiency
+    4.  Improve user documentation
+    
+  Secondary List
+    1.  Complete Compute_far-field()
+    2.  Introduce non-uniform mesh discretization
   
