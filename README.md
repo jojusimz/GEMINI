@@ -21,7 +21,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 
 # How GEMINI Works
 
-![image](https://user-images.githubusercontent.com/60849864/80825880-24d00c80-8bd9-11ea-9ebe-1809ff8a1e41.png)
+![image](https://user-images.githubusercontent.com/60849864/80827240-85f8df80-8bdb-11ea-968a-db78bf39dce8.png)
 
 # Features
 
