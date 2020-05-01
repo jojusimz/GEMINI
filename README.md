@@ -83,7 +83,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         
         * **<Mesh_handler>** : a wrapper class for handling a matrix of TLM nodes
         
-        * **data_parser()** : a function created to parse simulation data from an external file to the sim_handler object instance
+        * **data_parser()** : a function created to parse simulation data from an external file to a sim_handler class instance
         
             * Simulation/Model specification defined by user in a .csv file.
             
