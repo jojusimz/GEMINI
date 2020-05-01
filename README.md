@@ -93,9 +93,9 @@ The implementation and approach taken to mesh and solve are simple and can be ea
             
         * Additon of new Geometry/Features easily achieved via class methods interface.
         
-# Geometry Features
+# Geometry/ Material Features
 
-The following material/geometrical features are the insertable features in the current package:
+The following material/geometrical features are the insertable in the computational domain:
 
   * Waveguide capacitive iris
   
