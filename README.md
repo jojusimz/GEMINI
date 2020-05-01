@@ -19,7 +19,35 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 ## Geometry Features:
 
 ## Getting Setup:
-
+ 
+  ### Building GEMINI from source on Linux / Windows ( MSYS )
+  
+  Compilation Instructions
+  
+  1. Checklist
+  
+   * Msys terminal ( Mandatory for Windows )
+   * g++ compiler ( Mandatory )
+   * MATLAB or Python to run Analytic scripts on Results ( Mandatory )
+  
+  2.  clone GEMINI repository
+  
+      ```cd folder/to/clone-into/```
+      ```git clone https://github.com/gittower/GEMINI.git```
+  
+  3.  Navigate to GEMINI source code directory and Create a results directory 
+  
+       ```cd src```
+       ```mkdir GEMINI_results```
+  
+  4.  Build the source code to executable software 
+    
+      ``` make ```
+      
+  4.  Run the executable
+  
+      ``` .\simulate_GEMINI ```
+  
 ## Reference List featuring GEMINI:
 1.	_J. Odeyemi, A. Vukovic, T. Benson, P. Sewell, “An improved PML implementation in the transmission line method,” IET 10th International Conference on Computational Electromagnetics, June 2019._ 
 
