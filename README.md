@@ -1,12 +1,12 @@
 - [GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SOLVER DEVELOPED IN C++](#gemini--a-time-domain-tlm-electromagnetic-field-solver-developed-in-c--)
-- [The TLM Method:](#the-tlm-method)
-- [How GEMINI Works:](#how-gemini-works)
-- [Features:](#features)
-- [C++ Source Code Features:](#c---source-code-features)
-- [Geometry Features:](#geometry-features)
-- [Getting Setup:](#getting-setup)
-  * [Building GEMINI from source on Linux / Windows (MSYS)](#building-gemini-from-source-on-linux---windows--msys)
-- [Reference List featuring GEMINI:](#reference-list-featuring-gemini)
+- [The TLM Method:](#the-tlm-method-)
+- [How GEMINI Works:](#how-gemini-works-)
+- [Features:](#features-)
+- [C++ Source Code Features:](#c---source-code-features-)
+- [Geometry Features:](#geometry-features-)
+- [Getting Setup:](#getting-setup-)
+  * [Building GEMINI from source on Linux / Windows (MSYS)](#building-gemini-from-source-on-linux---windows--msys-)
+- [Reference List featuring GEMINI:](#reference-list-featuring-gemini-)
 
 <!-- toc -->
 
