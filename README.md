@@ -14,23 +14,63 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 
 ## Features:
 
-## Source Code Features:
-
+   ** Uniform rectangular mesh TLM solver for 2D (TLM shunt node) and 3D (SCN and HSCN) problems.
+   
+   ** Boundary conditions:
+   
+        *** Perfect Electrical Conductor
+        
+        *** Magnetic walls
+        
+        *** Matched Boundary Conditions
+        
+        *** Perfectly Matched Layer (Split field and Stretched coordinate)
+        
+   ** Material Space: 
+        *** isotropic / anisotropic material space
+        *** lossy material space (electric and magnetic losses)
+   ** Outputs E and H fields with point , line and plane output options.
+        *** Output file format: .txt/ .csv files
+   ** Sequential/Parallel (OpenMP) implementation options
+   ** Source code is compilable on Linux and Windows using MSY. See setUP instructions section.
+   ** Excitation options:
+        *** point source
+        *** line source (2D)
+        *** Plane source : TE or TEM sources 
+        *** Gaussian derivative pulse
+   ** Provides option to run batch of simulations in automated manner
+   ** Stable Perfectly Matched Layer implementation for all parameter choices
+  
+## C++ Source Code Features:
+   ** Object Oriented C++ development
+        *** Modularity of code: Class libraries and their implementations can be used independently of the GEMINI package
+        *** Scalable: Addition of new features
+   ** Portable 
+   ** Parallel/Sequential mode
+   ** Key features:
+        *** Sim_handler class
+        *** Mesh_handler class
+        *** Sim/Model Parser function
+            **** Simulation/Model specification defined by user in a .csv file.
+            **** Supports an automated running of a batch of simulation.
+            **** Avoids hardcoding of simulation data.
+        *** Additon of new Geometry/Features easily achieved via class methods interface.
+        
 ## Geometry Features:
 
 ## Getting Setup:
  
-  ### Building GEMINI from source on Linux / Windows ( MSYS )
+  ### Building GEMINI from source on Linux / Windows (MSYS)
   
   Compilation Instructions
   
   1. **CHECKLIST**
   
-     * Msys terminal ( Mandatory for Windows )
-     * g++ compiler ( Mandatory )
-     * MATLAB or Python to run Analytic scripts on Results ( Mandatory )
+     * Msys terminal (Mandatory for Windows. Download via MingGW Installation Manager)
+     * g++ compiler (Mandatory)
+     * MATLAB or Python to run Analytic scripts on Results (Mandatory)
   
-  2.  **START** BASH terminal (Linux) / MSYS shell ( Windows )
+  2.  **START** BASH terminal (Linux) / MSYS shell (Windows)
     
   3.  **NAVIGATE** to project folder and **CLONE** GEMINI repository to
   
