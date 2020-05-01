@@ -79,11 +79,11 @@ The implementation and approach taken to mesh and solve are simple and can be ea
    
    * Key features:
    
-        * <Sim_handler> : a wrapper class which handles the whole simulation process
+        * **<Sim_handler>** : a wrapper class which handles the whole simulation process
         
-        * <Mesh_handler>: a wrapper class for handling a matrix of TLM nodes
+        * **<Mesh_handler>** : a wrapper class for handling a matrix of TLM nodes
         
-        * sim_parse_function() : a function defined to parse simulation data from an external file to the sim_handler object instance
+        * **data_parser()** : a function created to parse simulation data from an external file to the sim_handler object instance
         
             * Simulation/Model specification defined by user in a .csv file.
             
