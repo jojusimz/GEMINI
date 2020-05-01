@@ -27,33 +27,58 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         *** Perfectly Matched Layer (Split field and Stretched coordinate)
         
    ** Material Space: 
+   
         *** isotropic / anisotropic material space
+        
         *** lossy material space (electric and magnetic losses)
+        
    ** Outputs E and H fields with point , line and plane output options.
+   
         *** Output file format: .txt/ .csv files
+        
    ** Sequential/Parallel (OpenMP) implementation options
+   
    ** Source code is compilable on Linux and Windows using MSY. See setUP instructions section.
+   
    ** Excitation options:
+   
         *** point source
+        
         *** line source (2D)
+        
         *** Plane source : TE or TEM sources 
+        
         *** Gaussian derivative pulse
+        
    ** Provides option to run batch of simulations in automated manner
+   
    ** Stable Perfectly Matched Layer implementation for all parameter choices
   
 ## C++ Source Code Features:
+
    ** Object Oriented C++ development
+   
         *** Modularity of code: Class libraries and their implementations can be used independently of the GEMINI package
+        
         *** Scalable: Addition of new features
    ** Portable 
+   
    ** Parallel/Sequential mode
+   
    ** Key features:
+   
         *** Sim_handler class
+        
         *** Mesh_handler class
+        
         *** Sim/Model Parser function
+        
             **** Simulation/Model specification defined by user in a .csv file.
+            
             **** Supports an automated running of a batch of simulation.
+            
             **** Avoids hardcoding of simulation data.
+            
         *** Additon of new Geometry/Features easily achieved via class methods interface.
         
 ## Geometry Features:
