@@ -24,11 +24,11 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         
         * Matched Boundary Conditions
         
-        * Perfectly Matched Layer (Split field and Stretched coordinate)
+        * **Perfectly Matched Layer (Split field and Stretched coordinate implementations included)**
         
    * Material Space: 
    
-        * isotropic / anisotropic material space
+        * isotropic / anisotropic permeability and permittivity material space
         
         * lossy material space (electric and magnetic losses)
         
@@ -50,9 +50,9 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         
         * Gaussian derivative pulse
         
-   * Provides option to run batch of simulations in automated manner
+   * Provides option to run batch of simulations in an automated manner
    
-   * Stable Perfectly Matched Layer implementation for all parameter choices
+   * **Stable Perfectly Matched Layer implementation for all parameter choices!!**
   
 ## C++ Source Code Features:
 
@@ -61,6 +61,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         * Modularity of code: Class libraries and their implementations can be used independently of the GEMINI package
         
         * Scalable: Addition of new features
+        
    * Portable 
    
    * Parallel/Sequential mode
@@ -83,6 +84,26 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         
 ## Geometry Features:
 
+The following material/geometrical features included in this package as a default:
+
+  * Capacitive iris
+  
+  * Dipole Antenna
+  
+  * PEC cube 
+  
+  * Frequency Selective Surface : Square Aperture and Jerusalem Cross FSS
+  
+  * Dielectric substrate.
+  
+The insertion of new features is straightforward and can be achieved by a combination of the class_methods:
+
+   *  get_coordinate_iD (x,y,z)
+   
+   *  Set_material ( material_parameter_identifier)
+   
+For more info on this feature please contact me as this may not be obvious to the novice user.
+
 ## Getting Setup:
  
   ### Building GEMINI from source on Linux / Windows (MSYS)
@@ -92,7 +113,9 @@ The implementation and approach taken to mesh and solve are simple and can be ea
   1. **CHECKLIST**
   
      * Msys terminal (Mandatory for Windows. Download via MingGW Installation Manager)
+     
      * g++ compiler (Mandatory)
+     
      * MATLAB or Python to run Analytic scripts on Results (Mandatory)
   
   2.  **START** BASH terminal (Linux) / MSYS shell (Windows)
