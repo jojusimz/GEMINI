@@ -1,4 +1,4 @@
-This directory contains the .cpp and .h files along with the Makefile required to compile the DASH simulator into an executable. The code was written to be compiled on a cluster operated in a linux environment however the actual is code features are portable to be compiled in a windows operating system.
+This directory contains the .cpp and .h files along with the Makefile required to compile the GEMINI simulator into an executable. The code was written to be compiled on a cluster operated in a linux environment however the actual is code features are portable to be compiled in a windows operating system.
 
 -------------------------------------------------------------------------------------------------------------------------------------------
 Source Code Details:
