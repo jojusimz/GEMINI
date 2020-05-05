@@ -27,6 +27,6 @@
 
 * Upon completion the *Results_directory* will be populated with results from the simulation
 
-* Run the analytics scripts on the result files
+* **WELL DONE!! YOU HAVE NOW SIMULATED YOUR FIRST ELECTROMAGNETIC PROBLEM USING GEMINI YOU CAN PROCEED TO RUNNING YOUR ANALYTICS SCRIPTS ON THE RESULT FILES**
 
-* **WELL DONE!! YOU HAVE NOW SIMULATED YOUR FIRST ELECTROMAGNETIC PROBLEM USING GEMINI**
+
