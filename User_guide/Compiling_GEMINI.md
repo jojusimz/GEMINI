@@ -2,7 +2,8 @@
 
 Guidelines for compilation:
 
-  *  Clone the src folder into your desired local directory:
+  * Open BASH shell / MSYS terminal
+  * Clone the src folder into your desired local directory:
   * Enter the following commands:
   
          make 
