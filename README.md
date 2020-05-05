@@ -164,7 +164,9 @@ For more info on this feature please contact me as this may not be obvious to th
   
         ``` make RUN_GEMINI ```
         
+        
  *The terminal window*    
+ 
 ![image](https://user-images.githubusercontent.com/60849864/81107341-e99e4800-8f0e-11ea-81ab-bc9ee1486939.png)
 
  
