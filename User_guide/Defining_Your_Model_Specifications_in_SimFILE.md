@@ -15,8 +15,16 @@ The **SIM.FILE** template is given below.
 
 ![image](https://user-images.githubusercontent.com/60849864/81116681-b7e0ad80-8f1d-11ea-9a1b-de9d18fb9f56.png)
 
-1.  The very first thing to do is to determine the type of simulation you wish to run i.e. 2D or 3D structures. 
+1.  The very first thing to do is to determine the type of simulation you wish to run i.e. 2D or 3D EM simulation. 
+
+       **Modify Row 1, Col 1 in the simulation file.**
+       
+       * #w or #s: is used to specify 3D geometries      
+       
+       * #p or #t, is used to specify 2D geometries
        
 2.  Determine the labels to your results. 
+      
+      **Modify Row 2, Col 3,4,5....... in the simulation file.**
 
-3.  Define the model data e.g. geometry dimensions, excitation frequency, type of excitation etc.
+3.  Define the model data e.g. geometry dimensions, excitation frequency, type of excitation etc. **See the example SIM.FILEs in the simulated examples depository.**
