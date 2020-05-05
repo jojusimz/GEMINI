@@ -25,7 +25,7 @@
        
        * Iterate TLM algorithm for the total number of time steps set out in the **SIM.FILE** 
 
-* Upon completion the Results_directory will be populated with results from the simulation
+* Upon completion the *Results_directory will be populated with results from the simulation
 
 * Run the analytics scripts on the result files
 
