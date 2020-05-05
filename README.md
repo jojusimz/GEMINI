@@ -162,7 +162,14 @@ For more info on this feature please contact me as this may not be obvious to th
       
   6.  **RUN** the executable
   
-        ``` .\simulate_GEMINI ```
+        ``` make RUN_GEMINI ```
+        
+ *The terminal window*    
+![image](https://user-images.githubusercontent.com/60849864/81107341-e99e4800-8f0e-11ea-81ab-bc9ee1486939.png)
+
+ 
+
+---------------------------------------------------------------------------------------------------------------------------------------
   
 # Publications Featuring GEMINI
 1.	_J. Odeyemi, A. Vukovic, T. Benson, P. Sewell, “An improved PML implementation in the transmission line method,” IET 10th International Conference on Computational Electromagnetics, June 2019._ 
