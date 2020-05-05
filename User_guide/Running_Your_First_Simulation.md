@@ -1,4 +1,4 @@
-### Running Your First Simulation
+### Step by step instructions for running your first GEMINI simulation
 
 * Successfully compile GEMINI into an .exe
 
@@ -19,11 +19,11 @@
 
 * GEMINI will now:
 
-       * Create the Geometry
+    * Create the Geometry
        
-       * Discretize the Geometry into TLM cells
+    * Discretize the Geometry into TLM cells
        
-       * Iterate TLM algorithm for the total number of time steps set out in the **SIM.FILE** 
+     * Iterate TLM algorithm for the total number of time steps set out in the **SIM.FILE** 
 
 * Upon completion the *Results_directory* will be populated with results from the simulation
 
