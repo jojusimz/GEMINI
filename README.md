@@ -19,7 +19,7 @@
 
 This repository hosts a C++ TLM electromagnetic field software suitable for simulating E and H field interactions in prescribed 2D and 3D cubic geometries discretized with a uniform mesh. 
 
-At the start of my PhD there was no open source TLM code available. GEMINI was therefore developed to support my PhD research. Through it I have implemented novel formulations of PML algorithms and benchmarked their performance against existing published methods. I have now decided to release my source code as it may be useful to any researcher interested in simulating similar geometries or wanting to contribute to the work. 
+At the start of my PhD there was no open source C++ TLM code available and so I developed GEMINI. Through it I have implemented novel formulations of PML algorithms and benchmarked their performance against existing published methods. Several numerical experiments have been carried out using GEMINI. I have now decided to release my source code as it may be useful to any researcher interested in simulating similar problems or wanting to contribute to the work. 
 
 The implementation and approach taken to mesh and solve are simple and can be easily understood by researchers familiar with the TLM/Finite difference methods. The novelty however is the stable PML algorithms implemented the details of which are published in my journal papers  (See reference list [1]-[5]).
 
@@ -99,15 +99,15 @@ The implementation and approach taken to mesh and solve are simple and can be ea
         
         * **<Mesh_handler>** : a wrapper class for handling a matrix of TLM nodes
         
-        * **data_parser()** : a function created to parse simulation data from an external file to a sim_handler class instance
+        * **sim_file_parser()** : a function created to parse simulation data from an external file to a sim_handler class instance
         
-            * Simulation/Model specification defined by user in a .csv file.
+            * Simulation/Model specification defined by user in a .csv file
             
-            * Supports an automated running of a batch of simulation.
+            * Supports an automated running of simulation batches
             
-            * Avoids hardcoding of simulation data.
+            * Avoids hard typing of simulation data
             
-        * Additon of new Geometry/Features easily achieved via class methods interface.
+        * Additon of new Geometry/Features easily achieved via class methods interface
         
 # Geometry/Material Features
 
