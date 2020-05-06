@@ -36,7 +36,7 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 The TLM method is a well established numerical method developed based on the discrete Huygens principle. It explores the analogy between wave propagation theory and transmission line theory to obtain field solutions to **hyperbolic partial differential equations**. Given the wave equation which is hyperbolic in its form:
 
 
-![\frac{\partial ^2 E_z }{\partial x^2} + \frac{\partial^2 E_z}{ \partial y^2} = c^2 \frac{\partial ^2 E_z}{\partial t^2} ](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20%5E2%20E_z%20%7D%7B%5Cpartial%20x%5E2%7D%20%2B%20%5Cfrac%7B%5Cpartial%5E2%20E_z%7D%7B%20%5Cpartial%20y%5E2%7D%20%3D%20c%5E2%20%5Cfrac%7B%5Cpartial%20%5E2%20E_z%7D%7B%5Cpartial%20t%5E2%7D%20.....................................................................................................(2))
+![\frac{\partial ^2 E_z }{\partial x^2} + \frac{\partial^2 E_z}{ \partial y^2} = c^2 \frac{\partial ^2 E_z}{\partial t^2} ](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20%5E2%20E_z%20%7D%7B%5Cpartial%20x%5E2%7D%20%2B%20%5Cfrac%7B%5Cpartial%5E2%20E_z%7D%7B%20%5Cpartial%20y%5E2%7D%20%3D%20c%5E2%20%5Cfrac%7B%5Cpartial%20%5E2%20E_z%7D%7B%5Cpartial%20t%5E2%7D%20                                                                                                                        (2))
 
 
 the TLM method obtains an equivalent circuit equation of a similar form by applying a finite difference discretization and circuit theory. The resulting TLM equation to (1) is given as
