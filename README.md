@@ -17,24 +17,24 @@
 # GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SIMULATOR DEVELOPED IN C++
   ![image](https://user-images.githubusercontent.com/60849864/81127431-12860380-8f36-11ea-9360-1b0f7b29596e.png)
 
-This repository hosts a C++ TLM electromagnetic field solver suitable for simulating E and H field interactions in prescribed 2D and 3D cubic geometries discretized with a uniform mesh. 
+This repository hosts a C++ TLM electromagnetic field software suitable for simulating E and H field interactions in prescribed 2D and 3D cubic geometries discretized with a uniform mesh. 
 
-This software was developed to facilitate my PhD research. Through it I implemented novel formulations of PML algorithms and benchmarked these against existing published methods. I have now decided to release the source code as it may be useful to any researcher interested in simulating similar geometries or wanting to build on the existing work. 
+This software was developed to facilitate my PhD research. Through it I developed novel formulations of PML algorithms and benchmarked their performance against existing published methods. At the start of my PhD there was no open source TLM code available. For this reason, I have decided to release my source code as it may be useful to any researcher interested in simulating similar geometries or wanting to contribute to the work. 
 The implementation and approach taken to mesh and solve are simple and can be easily understood by researchers familiar with the TLM/Finite difference methods. The novelty however is the stable PML algorithms implemented the details of which are published in my journal papers  (See reference list [1]-[5]).
 
 **Author**: Jomiloju Odeyemi
 
 **Email**: Jomiloju.odeyemi@nottingham.ac.uk
 
-https://www.linkedin.com/in/jomiloju-odeyemi/
+**Weblink**: https://www.linkedin.com/in/jomiloju-odeyemi/
 
-https://www.researchgate.net/profile/Jomiloju_Odeyemi
+**Weblink**: https://www.researchgate.net/profile/Jomiloju_Odeyemi
 
 # The TLM Method
 
-# How GEMINI Works
+# How GEMINI Works 
 
-
+*At a glance*
 ![image](https://user-images.githubusercontent.com/60849864/80833434-6d41f700-8be6-11ea-800b-de9427535782.png)
 
 
@@ -90,7 +90,7 @@ https://www.researchgate.net/profile/Jomiloju_Odeyemi
         
    * Portable to Linux / Windows platforms
    
-   * Parallel/Sequential mode
+   * Parallel/Sequential mode (OpenMP)
    
    * Key features:
    
