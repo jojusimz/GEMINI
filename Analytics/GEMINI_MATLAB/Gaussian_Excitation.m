@@ -3,11 +3,7 @@
 % Email: Jomiloju.odeyemi@nottingham.ac.uk
 %
 %------------------------------------------------------------------------------------------------------------
-% This script plots the time and frequency domain from a single data file
-%
 %------------------------------------------------------------------------------------------------------------
-
-
 
 function [ xt , xf, xf_bins] = Gaussian_Excitation( dt, num_of_iter, bandwidth, centre_freq )
 
