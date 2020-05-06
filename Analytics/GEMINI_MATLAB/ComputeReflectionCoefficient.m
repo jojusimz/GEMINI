@@ -1,4 +1,9 @@
-
+% This code is part of the GEMINI package
+% Author: J.Odeyemi
+% Email: Jomiloju.odeyemi@nottingham.ac.uk
+%
+%------------------------------------------------------------------------------------------------------------
+%------------------------------------------------------------------------------------------------------------
 
 %total_field = 'electric_field_parallel_plateWG.txt';
 %reference_field = 'reference_electric_field_parallel_plateWG.txt';
