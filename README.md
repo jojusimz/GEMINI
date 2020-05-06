@@ -19,7 +19,8 @@
 
 This repository hosts a C++ TLM electromagnetic field software suitable for simulating E and H field interactions in prescribed 2D and 3D cubic geometries discretized with a uniform mesh. 
 
-This software was developed to facilitate my PhD research. Through it I developed novel formulations of PML algorithms and benchmarked their performance against existing published methods. At the start of my PhD there was no open source TLM code available. For this reason, I have decided to release my source code as it may be useful to any researcher interested in simulating similar geometries or wanting to contribute to the work. 
+At the start of my PhD there was no open source TLM code available. GEMINI was therefore developed to support my PhD research. Through it I have implemented novel formulations of PML algorithms and benchmarked their performance against existing published methods. I have now decided to release my source code as it may be useful to any researcher interested in simulating similar geometries or wanting to contribute to the work. 
+
 The implementation and approach taken to mesh and solve are simple and can be easily understood by researchers familiar with the TLM/Finite difference methods. The novelty however is the stable PML algorithms implemented the details of which are published in my journal papers  (See reference list [1]-[5]).
 
 **Author**: Jomiloju Odeyemi
