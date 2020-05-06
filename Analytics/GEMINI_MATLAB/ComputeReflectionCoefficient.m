@@ -1,7 +1,7 @@
 
 
-total_field = 'electric_field_parallel_plateWG.txt';
-reference_field = 'reference_electric_field_parallel_plateWG.txt';
+%total_field = 'electric_field_parallel_plateWG.txt';
+%reference_field = 'reference_electric_field_parallel_plateWG.txt';
 
 total_field = 'electric_field_parallel_plateWG2.txt';
 reference_field = 'reference_electric_field_parallel_plateWG2.txt';
