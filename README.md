@@ -43,12 +43,16 @@ the TLM method obtains an equivalent circuit equation of a similar form by apply
 
 
 
-![\frac{\partial ^2 V_z }{L_x \partial x^2} + \frac{\partial^2 V_z}{ L_y \partial y^2} = C_z \frac{\partial ^2 V_z}{\partial t^2}........................................(2)](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20%5E2%20V_z%20%7D%7BL_x%20%5Cpartial%20x%5E2%7D%20%2B%20%5Cfrac%7B%5Cpartial%5E2%20V_z%7D%7B%20L_y%20%5Cpartial%20y%5E2%7D%20%3D%20C_z%20%5Cfrac%7B%5Cpartial%20%5E2%20V_z%7D%7B%5Cpartial%20t%5E2%7D.......................................................................................................................................................................(2))
+![\frac{\partial ^2 V_z }{L_x \partial x^2} + \frac{\partial^2 V_z}{ L_y \partial y^2} = C_z \frac{\partial ^2 V_z}{\partial t^2}........................................(2)](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B%5Cpartial%20%5E2%20V_z%20%7D%7BL_x%20%5Cpartial%20x%5E2%7D%20%2B%20%5Cfrac%7B%5Cpartial%5E2%20V_z%7D%7B%20L_y%20%5Cpartial%20y%5E2%7D%20%3D%20C_z%20%5Cfrac%7B%5Cpartial%20%5E2%20V_z%7D%7B%5Cpartial%20t%5E2%7D..........................................................................................................................................................................(2))
 
 
 According to circuit theory it is possible to obtain exact solutions to equation (2). In this manner the TLM method differs from other popular Finite difference based methods because it avoids a full discretization approach. Seeing that exact solutions to equation 2 it is therefore satisfactory to assume unconditional conditional stability is achieved.
 
-The spatial domain is discretized into a matrix of TLM cells and an explicit time stepping algorithm ( referred to as the scatter and connect ) is applied at all points in space to obtain the field solutions.
+![image](https://user-images.githubusercontent.com/60849864/81179508-a50fbc80-8fa1-11ea-8993-160122e48a8a.png)
+
+The spatial domain is discretized into a matrix of TLM cells and an explicit time stepping algorithm ( referred to as the scatter and connect process) is applied at all points in space to obtain the field solutions.
+
+
 
 # How GEMINI Works 
 
