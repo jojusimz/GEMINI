@@ -2,7 +2,7 @@
 
 To the best of my ability I have endeavoured to make the GEMINI simulation process as seamless as possible. To some degree I have been able to achieve this in a number of simple ways. One of which is the use of a simulaiton file **SIM.FILE**
 
-Allowing the users to define their simulation parameters in a SIM.FILE removes the need for hard coding simulation data which can be inhibitive procedure especially if you are running a batch of simulations with lengthy run times. Also the **SIM.FILE** can be viewed as soft copy of the data of each simulation which can be referred to by the user at a later date.
+Allowing the users to define their simulation parameters in a SIM.FILE removes the need for typing simulation data which in itself can be a inhibitive procedure especially if you are running a batch of simulations with lengthy run times. Also the **SIM.FILE** can be viewed as soft copy of the data of each simulation which can be referred to by the user at a later date.
 
 ### HOW IT WORKS:
 
