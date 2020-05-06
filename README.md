@@ -50,7 +50,7 @@ https://www.researchgate.net/profile/Jomiloju_Odeyemi
         
         * Matched Boundary Conditions
         
-        * **Perfectly Matched Layer (Split field and Stretched coordinate implementations included)**
+        * **Perfectly Matched Layer (Stretched coordinate PML implementation included)**
         
    * Material Space:
    
@@ -78,7 +78,7 @@ https://www.researchgate.net/profile/Jomiloju_Odeyemi
         
    * Provides option to run batch of simulations in an automated manner
    
-   * **Stable Perfectly Matched Layer implementation for all parameter choices!!**
+   * **Stable Perfectly Matched Layer implementation that can terminate arbitrary inhomogeneous media!!**
   
 # C++ Source Code Features
 
