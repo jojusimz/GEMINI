@@ -31,7 +31,19 @@ The implementation and approach taken to mesh and solve are simple and can be ea
 
 **Weblink**: https://www.researchgate.net/profile/Jomiloju_Odeyemi
 
-# The TLM Method
+# The TLM Method (At a glance)
+
+The TLM method is a well established numerical method developed based on the discrete Huygens principle. It explores the analogy between wave propagation theory and transmission line theory to obtain field solutions to **hyperbolic partial differential equations**. Given the wave equation which is hyperbolic in its form:
+
+<img src="http://www.sciweavers.org/tex2img.php?eq=%20%5Cfrac%7B%5Cpartial%20%5E2%20E_z%20%7D%7B%5Cpartial%20x%5E2%7D%20%2B%20%5Cfrac%7B%5Cpartial%5E2%20E_z%7D%7B%20%5Cpartial%20y%5E2%7D%20%3D%20c%5E2%20%5Cfrac%7B%5Cpartial%20%5E2%20E_z%7D%7B%5Cpartial%20t%5E2%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt=" \frac{\partial ^2 E_z }{\partial x^2} + \frac{\partial^2 E_z}{ \partial y^2} = c^2 \frac{\partial ^2 E_z}{\partial t^2} " width="181" height="50" />
+
+the TLM method obtains an equivalent circuit equation of a similar form by applying a finite difference discretization and circuit theory. The resulting TLM equation to (1) is given as
+
+<img src="http://www.sciweavers.org/tex2img.php?eq=%20%5Cfrac%7B%5Cpartial%20%5E2%20V_z%20%7D%7BL_x%20%5Cpartial%20x%5E2%7D%20%2B%20%5Cfrac%7B%5Cpartial%5E2%20V_z%7D%7BL_y%20%5Cpartial%20y%5E2%7D%20%3D%20C_z%20%5Cfrac%7B%5Cpartial%20%5E2%20V_z%7D%7B%5Cpartial%20t%5E2%7D%20&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt=" \frac{\partial ^2 V_z }{L_x \partial x^2} + \frac{\partial^2 V_z}{L_y \partial y^2} = C_z \frac{\partial ^2 V_z}{\partial t^2} " width="204" height="51" />
+
+According to circuit theory it is possible to obtain exact solutions to equation (2). In this manner the TLM method differs from other popular Finite difference based methods because it avoids a full discretization approach. Seeing that exact solutions to equation 2 it is therefore satisfactory to assume unconditional conditional stability is achieved.
+
+The spatial domain is discretized into a matrix of TLM cells and an explicit time stepping algorithm ( referred to as the scatter and connect ) is applied at all points in space to obtain the field solutions.
 
 # How GEMINI Works 
 
