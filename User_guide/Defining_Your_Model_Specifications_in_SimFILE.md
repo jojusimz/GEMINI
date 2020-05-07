@@ -11,7 +11,9 @@ The simulation data saved in **SIM.FILE** is parsed into a struct container call
 
 ### DEFINING YOUR SIMULATION DATA IN SIM.FILE
 
-The **SIM.FILE** template is given below. 
+The whole **SIM.FILE** is a delimited text file that uses a comma to separate values. Each line of the file represents a simulation data. Each record consists of one or more fields, separated by commas. **The **SIM.FILE** can be edited in any text editing software. My preference editor is Microsoft Excel. When editing in Excel, make sure to save it as a .csv file.** 
+
+An example template of **SIM.FILE** is shown below
 
 ![image](https://user-images.githubusercontent.com/60849864/81116681-b7e0ad80-8f1d-11ea-9a1b-de9d18fb9f56.png)
 
