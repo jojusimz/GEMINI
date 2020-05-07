@@ -28,7 +28,7 @@ using namespace std;
 const double pi=acos(-1.0L);
 const double  u0 = 12566370614e-16;
 const double e0 = 88541878176e-22;
-const double c = 299792458;
+const double c = 299792458.;
 const double Z0 = sqrt(u0/e0);//
 //const double er(1),ur(1);
 //.....................................................................................................
@@ -36,8 +36,8 @@ const double Z0 = sqrt(u0/e0);//
 mesh_handler_SCN::mesh_handler_SCN(int simtype, double width, double height, double length, double dl, double tfactor,
              float er, float sigma_ey,int scn_typ, int n_PMl, int conduct_prof,double Refn_factor)
 {
-
-    cout<<" Creating     Waveguide ......"<<endl;
+    cout<<endl;
+    cout<<" Creating Waveguide Structure......"<<endl;
     if ( dl <= 0 || width <=0 || height <=0 || length <=0)
     {
         WG_width =  0;
@@ -56,7 +56,7 @@ mesh_handler_SCN::mesh_handler_SCN(int simtype, double width, double height, dou
         neighbours_set = false;
         scn_type = scn_typ;
         sim_type = simtype;
-        centre_node = return_coordinates_WG( width,height,length,npml,dl,width/2,height/2,length/2 );
+        centre_node = get_coordinate_iD_WG( width,height,length,npml,dl,width/2,height/2,length/2 );
         WG_width = width;
         WG_height = height;
         WG_length = length;
@@ -80,7 +80,7 @@ mesh_handler_SCN::mesh_handler_SCN(int simtype, double width, double height, dou
         Nzz =  2*n_PMl + Nz;
         Ntotal_ = Nzz * Nx *Ny;            // Ntotal + nodes in PML
         cout<<" Ntotal with PML:  "<<Ntotal_<<endl;
-        cout<<" Centre node : " <<centre_node<<endl;
+        //cout<<" Centre node : " <<centre_node<<endl;
 
         int PML_boundary1 = n_PMl;
         int PML_boundary2 = n_PMl+Nz;
@@ -128,6 +128,7 @@ mesh_handler_SCN::mesh_handler_SCN(int simtype, double width, double height, dou
 mesh_handler_SCN::mesh_handler_SCN(double width, double height, double length, int simtype, double dl,
              double tfactor, float er, float sigma_ey,int scn_typ, int n_PMl, int conduct_prof,double Refn_factor)
 {
+    cout<<endl;
     cout<<" Creating Cubic domain ......"<<endl;
     cout<<" dl =  "<< dl<<" length = "<<length<<endl;
 
@@ -285,7 +286,7 @@ mesh_handler_SCN::mesh_handler_SCN(double width, double height, int simtype, dou
         WG_length = dl;
         WG_dl = dl;
         npml = n_PMl;
-        centre_node = return_coordinates_2D(width,height,npml,npml,dl,width/2,height/2,dl);
+        centre_node = get_coordinate_iD_2D(width,height,npml,npml,dl,width/2,height/2,dl);
 
 //Number of nodes in the problem domain along each coordinate axis
         Nx = int ( (WG_width / WG_dl)  + 0.5);
@@ -811,7 +812,7 @@ void mesh_handler_SCN::insert_iris(int thickness , float z_plane)
         cout<<" Inserting Iris......in ";
         cout<< " Plane : "<< z_plane <<endl;
         double dl = WG_dl;
-        int start_node = return_coordinates_WG (WG_width,WG_height,WG_length,npml,dl,0,0,z_plane); // on the left
+        int start_node = get_coordinate_iD_WG (WG_width,WG_height,WG_length,npml,dl,0,0,z_plane); // on the left
         cout<<"start node bottom"<<start_node<<endl;
         int width_node = start_node + Nxx*Nyy-1; // on the right
         cout<<"start node top "<<width_node<<endl;
@@ -872,8 +873,9 @@ void mesh_handler_SCN::insert_perfect_cube(int cube_l,int nx0,int ny0, int nz0) 
 
 void mesh_handler_SCN::insert_FSS_square(double dims, float pos_z)
 {
+    cout<<endl;
     cout<< "....INSERTING FREQUENCY SELECTIVE SURFACE ( SQUARE ) IN PLANE...." <<pos_z<<endl<<endl;
-    int start_node = return_coordinates_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,pos_z);
+    int start_node = get_coordinate_iD_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,pos_z);
     int start_node2= start_node;
 
     int N_dims_B = int(dims/WG_dl + 0.5); // bottom limit
@@ -897,8 +899,9 @@ void mesh_handler_SCN::insert_FSS_square(double dims, float pos_z)
 
 void mesh_handler_SCN::insert_FSS_jerusalem_cross(double dims, float pos_z)
 {
-    cout<< "....INSERTING FREQUENCY SELECTIVE SURFACE (JC) IN PLANE...." <<pos_z<<endl<<endl;
-    int start_node = return_coordinates_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,pos_z);
+   cout<<endl;
+   cout<< "....INSERTING FREQUENCY SELECTIVE SURFACE (JC) IN PLANE...." <<pos_z<<endl<<endl;
+    int start_node = get_coordinate_iD_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,pos_z);
 
     //cout<< " dims "<< Nxx << " .... " << Nyy <<endl;
 
@@ -1018,7 +1021,7 @@ void mesh_handler_SCN::insert_PML(int num_PML, double loc, double Reflctn_f, int
             loc = WG_length/2;
         }
 
-        int start_node = return_coordinates_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,loc);
+        int start_node = get_coordinate_iD_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,loc);
         int start_node2 = start_node;
 
         int z_loc = this->WG_nodes[start_node].get_coord(2);
@@ -1130,6 +1133,11 @@ void mesh_handler_SCN::print_WG_plane_par(int z_plane, int par )
     cout<<" Plane : " << z_plane << endl;
 
  int node_id = (z_plane) * this->Nxx*Nyy;
+
+  if( par == 1)  cout<< "..... Displaying the PML '1' nodes in Plane  "<< z_plane <<"...."<<endl;
+  else if( par == 2)  cout<< "..... Displaying the iD of the SCN nodes in Plane  "<< z_plane <<"...."<<endl;
+  else if( par == 3)  cout<< "..... Displaying the PEC '1' nodes in Plane  "<< z_plane <<"...."<<endl;
+
 
  for( int y = 0; y< Nyy ; y++){
     for ( int x = 0; x< Nxx; x++){
@@ -1352,7 +1360,7 @@ void mesh_handler_SCN::TLM_excitation_by_imposing_inc(int start_node_z, vector <
     //cout<< scn_inc[0] << " "<< scn_inc[1];
 
     int start_node = 0 + start_node_z*nxy;
-    start_node = return_coordinates_WG(WG_width,WG_height,WG_length,npml,WG_dl,0,0,2);
+    start_node = get_coordinate_iD_WG(WG_width,WG_height,WG_length,npml,WG_dl,0,0,2);
 
     for (int j = start_node; j < start_node+nxy ;j++)
     {
@@ -1408,8 +1416,6 @@ void mesh_handler_SCN::TLM_simulation1(int dt_total,double tfactor, int output_n
  // Used in exciting TE10 mode
     int te10_nd = excited_node;
 
-
-
 // Exciting SCN ports in xy.
      vector< vector <double> > v_inc ;//= parseIncident_2File("V_incident_xy.csv");
      //v_inc =  parseIncident_2File("V_incident_wg_xy.csv");
@@ -1417,7 +1423,6 @@ void mesh_handler_SCN::TLM_simulation1(int dt_total,double tfactor, int output_n
 
      max_time = v_inc.size()-1;
 
-    cout<<" here "<<endl;
     cout<<" source_Resistance "<< srce_res <<endl;
     cout<<" excitation type "<< exctn_type <<endl;
     cout<<" excitation at "<<excited_node<<" output at "<< output_node<<endl;
@@ -1557,7 +1562,7 @@ void mesh_handler_SCN::TLM_simulation1(int dt_total,double tfactor, int output_n
 
             // vector<double> Ey_v_plane_xy, Ex_v_plane_xy, Ez_v_plane_xy,Hy_v_plane_xy, Hx_v_plane_xy, Hz_v_plane_xy,
             vector<double> v_inc_ports;
-            int fss_node = return_coordinates_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,WG_length/2);
+            int fss_node = get_coordinate_iD_WG (WG_width,WG_height,WG_length,npml,WG_dl,0,0,WG_length/2);
             for( int ii = 0; ii<Nxx*Nyy ; ii++)
                 {
                     // Ey_v_plane_xy.push_back(Ey_output_at_node(ii+fss_node));
@@ -2254,6 +2259,7 @@ void mesh_handler_SCN :: write_incident_file_for_xy_plane (const string& nodefil
 
 void mesh_handler_SCN::print_Ey_output()
 {
+    cout<<endl;
     cout<< " PRINTING Ey......." <<endl;
     for(int i= 0; i<WG_Ex.size(); i++)
         cout<<i << ": "<< setprecision(15)<<WG_Ey[i] <<endl;
@@ -2296,7 +2302,7 @@ bool mesh_handler_SCN::print_G_PML_parameters(int L_R,int PML_layer)
     if (L_R == 2) // right side of waveguide
     {
 
-        first_node = 1 + return_coordinates_WG (this->WG_width,this->WG_height,this->WG_length,npml,this->WG_dl,this->WG_width,this->WG_height,this->WG_length);
+        first_node = 1 + get_coordinate_iD_WG (this->WG_width,this->WG_height,this->WG_length,npml,this->WG_dl,this->WG_width,this->WG_height,this->WG_length);
         node_id = first_node + (PML_layer-1)*xy;
 
         for(int y=0; y< this->Ny ; y++){
@@ -2998,7 +3004,7 @@ void mesh_handler_SCN::TLM_connection_sd(double Zz1 , double Zz2, double Zy1, do
     if( Zy1 < 0) reflct_y  = 1;
     if( Zx1 < 0) reflct_x  = 1;
 
-    //double output_node = return_coordinates_3D( WG_width,WG_height,WG_length,npml,WG_dl,10*dl,10*dl,28*dl);
+    //double output_node = get_coordinate_iD_3D( WG_width,WG_height,WG_length,npml,WG_dl,10*dl,10*dl,28*dl);
 
 
     //CONNECTION PROCESS
@@ -3456,7 +3462,7 @@ void mesh_handler_SCN::analytical_fc()
 
 
 /*
-int return_coordinates_2D(double width, double height,int npml, double dl, double x, double y, double z)
+int get_coordinate_iD_2D(double width, double height,int npml, double dl, double x, double y, double z)
 {
 
     int h = int( (height/dl) +0.5);
@@ -3476,7 +3482,7 @@ int return_coordinates_2D(double width, double height,int npml, double dl, doubl
 }
 */
 /*
-vector<vector<double> > parse2DCsvFile(int &simtype, string inputFileName, vector< string > &e_filenames, vector< string > &h_filenames)
+vector<vector<double> > sim_file_parser(int &simtype, string inputFileName, vector< string > &e_filenames, vector< string > &h_filenames)
 {
 
     vector< vector <double> > data;

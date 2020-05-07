@@ -32,7 +32,7 @@ const double  u0 = 12566370614e-16;
 const double e0 = 88541878176e-22;
 const double c = 299792458;
 const double Z0 = sqrt(u0/e0);
-const double er(1),ur(1);
+const double er(1),ur(1.);
 
 int main(int argc, char* argv[])
 {

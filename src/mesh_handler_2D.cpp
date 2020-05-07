@@ -24,7 +24,7 @@
 const double pi = 3.14159265;
 const double  u0 = 12566370614e-16;
 const double e0 = 88541878176e-22;
-const double c = 299792458;
+const double c = 299792458.;
 double Z0 = sqrt(u0/e0);//
 double Z0_shunt = Z0*sqrt(2);
 
@@ -511,7 +511,7 @@ void mesh_handler_2D::insert_structure_dipole_y_axis(int mid_point,int length)
 
 void:: mesh_handler_2D::insert_iris_2D(int thickness, float pos)
 {
-    int start_node = return_coordinates_2D (width,height,npmlx,npmly,dl,dl,pos,0);
+    int start_node = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,dl,pos,0);
     int end_node = start_node+ Nx - 1;
 
     if( 2*thickness < Nx)
@@ -535,6 +535,10 @@ void mesh_handler_2D::make_PEC(int node_id)
 void mesh_handler_2D::print_nodes(int propty)
 {
     int i(0);
+
+    if( propty == 1)  cout<< "..... Displaying the iD of nodes in the computational domain.... "<<endl;
+    if( propty == 2)  cout<< "..... Displaying the PML '1' nodes in the computational domain.... "<<endl;
+    if( propty == 3)  cout<< "..... Displaying the PEC '1' nodes in the computational domain.... "<<endl;
 
     for( int y = 0; y< Nyy ; y++)
     {
@@ -574,10 +578,10 @@ double mesh_handler_2D:: far_field_RCS(int bdry, double r )
     double d_surg = bdry*dl;
     if (bdry <= 0) return 0;
 
-    int vertex1 = return_coordinates_2D (width,height,npmlx,npmly,dl,dl+d_surg,dl+d_surg,0);  // bottom left
-    int vertex2 = return_coordinates_2D (width,height,npmlx,npmly,dl,width-d_surg,dl+d_surg,0);  // bottom right
-    int vertex3 = return_coordinates_2D (width,height,npmlx,npmly,dl,dl+d_surg,height-d_surg,0);  //top left
-    int vertex4 = return_coordinates_2D (width,height,npmlx,npmly,dl,width-d_surg,height-d_surg,0); // top right
+    int vertex1 = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,dl+d_surg,dl+d_surg,0);  // bottom left
+    int vertex2 = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,width-d_surg,dl+d_surg,0);  // bottom right
+    int vertex3 = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,dl+d_surg,height-d_surg,0);  //top left
+    int vertex4 = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,width-d_surg,height-d_surg,0); // top right
 
     double ez1(0), hx1(0), hy1(0);
     double ez2(0), hx2(0), hy2(0);
@@ -660,7 +664,7 @@ mesh_handler_2D::~mesh_handler_2D()
     //dtor
 }
 /*
-int return_coordinates_2D(double width, double height,int npmlx,int npmly, double dl, double x, double y, double z)
+int get_coordinate_iD_2D(double width, double height,int npmlx,int npmly, double dl, double x, double y, double z)
 {
 
     int h = int( (height/dl) +0.5);

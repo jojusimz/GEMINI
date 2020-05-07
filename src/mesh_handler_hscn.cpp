@@ -480,7 +480,7 @@ mesh_handler_HSCN::mesh_handler_HSCN(  double width,   double height, int simtyp
         mesh_handler_HSCN_length = dl;
         mesh_handler_HSCN_dl = dl;
         npml = n_PMl;
-        centre_node = return_coordinates_2D(width,height,npml,npml,dl,width/2,height/2,dl);
+        centre_node = get_coordinate_iD_2D(width,height,npml,npml,dl,width/2,height/2,dl);
 
         //Number of nodes in the problem domain a  each coordinate axis
         Nx = int ( (mesh_handler_HSCN_width / mesh_handler_HSCN_dl)  + 0.5);
@@ -989,7 +989,7 @@ void mesh_handler_HSCN::insert_iris(int thickness , float z_plane)
         cout<<" Inserting Iris......in ";
         cout<< " Plane : "<< z_plane <<endl;
           double dl = mesh_handler_HSCN_dl;
-        int start_node = return_coordinates_WG (mesh_handler_HSCN_width,mesh_handler_HSCN_height,mesh_handler_HSCN_length,npml,dl,0,0,z_plane); // on the left
+        int start_node = get_coordinate_iD_WG (mesh_handler_HSCN_width,mesh_handler_HSCN_height,mesh_handler_HSCN_length,npml,dl,0,0,z_plane); // on the left
         cout<<"start node bottom"<<start_node<<endl;
         int width_node = start_node + Nxx*Nyy-1; // on the right
         cout<<"start node top "<<width_node<<endl;
@@ -1260,7 +1260,7 @@ void mesh_handler_HSCN::TLM_simulation1(int dt_total, int output_node,int excite
 // Compute the start node in desired excitation plane
     int plane_start_node= excited_node;
 // TE10 mode
-    int te10_nd = excited_node;//return_coordinates_WG ( w,h,l,npml,dl,0,0,dl );
+    int te10_nd = excited_node;//get_coordinate_iD_WG ( w,h,l,npml,dl,0,0,dl );
     cout<< " excitation node " << excited_node<<endl;
     cout<<"output_node  "<< output_node <<endl;
 

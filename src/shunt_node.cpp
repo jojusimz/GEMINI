@@ -21,7 +21,7 @@ const double pi = 3.14159265;
 const double  u0 = 12566370614e-16;
 const double e0 = 88541878176e-22;
 const double err= 1;
-const double c = 299792458;
+const double c = 299792458.;
 const double Z0 = sqrt(u0/e0);//
 const double Z0_shunt = Z0*sqrt(2);
 double er(1),ur(1);
