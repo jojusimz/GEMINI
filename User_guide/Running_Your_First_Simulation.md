@@ -6,7 +6,7 @@
 
 * Move the **SIM.FILE** into the same directory as the compiled code.
 
-* Create a folder called *Results_directory* in the same directory as the compiled file.
+* Create a folder called *Results* in the same directory as the compiled file.
 
 * Run the following command in the BASH shell
 
