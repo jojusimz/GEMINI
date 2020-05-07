@@ -36,7 +36,7 @@ using namespace std;
 const double pi = 3.14159265;
 const double  u0 = 12566370614e-16;
 const double e0 = 88541878176e-22;
-const double c = 299792458;
+const double c = 299792458.;
 const double Z0 = sqrt(u0/e0);//
 
 sim_handler::sim_handler( string simFILE, int no_sims)//constructor
@@ -44,7 +44,7 @@ sim_handler::sim_handler( string simFILE, int no_sims)//constructor
     int simtype(-1);
     vector <string> E_filenames, H_filenames;
 
-    v_sim_param = parse2DCsvFile(simtype, simFILE, E_filenames, H_filenames);
+    v_sim_param = sim_file_parser(simtype, simFILE, E_filenames, H_filenames);
     Ey_file_names = E_filenames;
     Hz_file_names = H_filenames;
     sim_status = 0;
@@ -123,31 +123,31 @@ void sim_handler::Model_definition_for_sim_batch(int i)
 
     if( sim_type ==waveguide)
     {
-        model.excitation_node_3D = return_coordinates_WG (model.width,model.height,model.length,model.npmlx,model.dl,model.x1,model.y1,model.z1);
-        model.output_node_3D = return_coordinates_WG (model.width,model.height,model.length,model.npmlx,model.dl,model.x2,model.y2,model.z2);
-        model.centre_node_3D = return_coordinates_WG (model.width,model.height,model.length,model.npmlx,model.dl,model.width/2,model.height/2,model.length/2);
+        model.excitation_node_3D = get_coordinate_iD_WG (model.width,model.height,model.length,model.npmlx,model.dl,model.x1,model.y1,model.z1);
+        model.output_node_3D = get_coordinate_iD_WG (model.width,model.height,model.length,model.npmlx,model.dl,model.x2,model.y2,model.z2);
+        model.centre_node_3D = get_coordinate_iD_WG (model.width,model.height,model.length,model.npmlx,model.dl,model.width/2,model.height/2,model.length/2);
     }
 
 //Definitions for 3D cubic geometry
     else if ( sim_type ==cube_3D)
     {
-         model.excitation_node_3D = return_coordinates_3D (model.width,model.height,model.length,model.npmlx,model.dl,model.x1,model.y1,model.z1);
-         model.output_node_3D = return_coordinates_3D (model.width,model.height,model.length,model.npmlx,model.dl,model.x2,model.y2,model.z2);
-         model.centre_node_3D = return_coordinates_3D (model.width,model.height,model.length,model.npmlx,model.dl,model.width/2,model.height/2,model.length/2);
+         model.excitation_node_3D = get_coordinate_iD_3D (model.width,model.height,model.length,model.npmlx,model.dl,model.x1,model.y1,model.z1);
+         model.output_node_3D = get_coordinate_iD_3D (model.width,model.height,model.length,model.npmlx,model.dl,model.x2,model.y2,model.z2);
+         model.centre_node_3D = get_coordinate_iD_3D (model.width,model.height,model.length,model.npmlx,model.dl,model.width/2,model.height/2,model.length/2);
     }
 
     if(( sim_type ==plane_2D) ||( sim_type ==waveguide_2D)  )
     {
-        model.excitation_node_2D = return_coordinates_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.x1,model.y1,model.dl);
-        model.output_node_2D = return_coordinates_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.x2,model.y2,model.dl);
-        model.centre_node_2D = return_coordinates_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.width/2,model.height/2,model.dl);
+        model.excitation_node_2D = get_coordinate_iD_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.x1,model.y1,model.dl);
+        model.output_node_2D = get_coordinate_iD_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.x2,model.y2,model.dl);
+        model.centre_node_2D = get_coordinate_iD_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.width/2,model.height/2,model.dl);
 
 //Setting up Excitation
         int exct_type = model.excitation_type; // -1 = single node; 0 = line ;-2= te10
 
         if( exct_type == 0 )
         {
-            model.excitation_node_2D = return_coordinates_2D (model.width, model.height, model.npmlx, model.npmly, model.dl, model.x1, model.dl, model.dl) ; // exciting from  left to right
+            model.excitation_node_2D = get_coordinate_iD_2D (model.width, model.height, model.npmlx, model.npmly, model.dl, model.x1, model.dl, model.dl) ; // exciting from  left to right
             model.output_node_2D  = model.excitation_node_2D;    // line source
 
             cout<< " Excitation on line "<<model.excitation_node_2D<<endl;
@@ -157,8 +157,8 @@ void sim_handler::Model_definition_for_sim_batch(int i)
 
         else if( exct_type == -2)
         {
-            model.excitation_node_2D = return_coordinates_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.dl,model.y1,model.dl);
-            model.output_node_2D = return_coordinates_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.dl,model.y2,model.dl);
+            model.excitation_node_2D = get_coordinate_iD_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.dl,model.y1,model.dl);
+            model.output_node_2D = get_coordinate_iD_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,model.dl,model.y2,model.dl);
 
             cout<< " TE10  excitation in "<<model.excitation_node_2D<<endl;
             cout<< " output node observed in "<< model.output_node_2D <<endl;
@@ -172,8 +172,8 @@ void sim_handler::Display_simulation_details_3D(int i)
 
 //Prints to screen
     cout<<" ................................................................"<<endl;
-    cout<<" ......Display Simulation Parameters for Batch [ " << i<<" ]....."<<endl;
-    cout<<" ................................................................"<<endl;
+    cout<<" ......Display Simulation Parameters for Batch [ " << i<<" ]............."<<endl;
+    cout<<" ................................................................"<<endl<<endl;
     cout<<" 3D dimensions width x height x length : " <<model.width << " x " << model.height <<" x "<<model.length <<endl;
     cout<<" Centre node : " << model.centre_node_3D<<endl;
     cout<<" Total steps : " << model.total_steps<<endl;
@@ -195,7 +195,7 @@ void sim_handler::Display_simulation_details_3D(int i)
     cout<<" relative permeability : "<<model.er<<endl;
     cout<<" electric conductivity : " << model.sigma_e <<" S/m "<<endl;
     cout<<" Impedances : "<< model.Zz1 <<" "<<model.Zz2<<" "<< model.Zy1 <<" "<<model.Zy2<< " "<<model.Zx1 <<" "<<model.Zx2<<endl;
-    cout<<" PML type : "<< model.PML_type <<endl<<endl;
+    cout<<" PML type : "<< model.PML_type <<endl;
     cout<<" Boundary Reflection in x : " <<model.reflct_x <<endl;
     cout<<" Boundary Reflection in y : " <<model.reflct_y <<endl;
     cout<<" Boundary Reflection in z : " <<model.reflct_z2 <<endl;
@@ -212,8 +212,8 @@ void sim_handler::Display_simulation_details_3D(int i)
 void sim_handler::Display_simulation_details_2D(int i)
 {
     cout<<" ................................................................"<<endl;
-    cout<<" ......Display Simulation Parameters for Batch [ " << i<<" ]....."<<endl;
-    cout<<" ................................................................"<<endl;
+    cout<<" ......Display Simulation Parameters for Batch [ " << i<<" ]............."<<endl;
+    cout<<" ................................................................"<<endl<<endl;
 
 // PRINT SIMULATION PARAMETERS TO SCREEN
     cout<<" 2D Geometry width x height x length : " <<model.width << " x " << model.height <<"  y " << endl;
@@ -301,8 +301,8 @@ void sim_handler::Display_simulation_details_2D(int i)
         {
             model.excitation_node_3D = SCN_mesh->get_true_centre_node();  // setting the excitation at the centre node
             model.output_node_3D = model.excitation_node_3D;
-            //excitation_node_3D = return_coordinates_3D (width,height,length,npml,dl,x1,y1,z1);
-            // output_node_3D = return_coordinates_3D (width,height,length,npml,dl,x2,y2,z2);
+            //excitation_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x1,y1,z1);
+            // output_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x2,y2,z2);
 
             //SCN_mesh->print_WG_plane_par(int(length/dl),2);
             if (model.dipole)
@@ -342,8 +342,8 @@ void sim_handler::Display_simulation_details_2D(int i)
                 //excite domain at single node
                 if( model.excitation_type ==-1)
                 {
-                    model.excitation_node_3D = return_coordinates_3D (model.width, model.height, model.length, npml, model.dl, model.x1, model.y1, model.z1);
-                    model.output_node_3D = return_coordinates_3D (model.width, model.height, model.length, npml, model.dl, model.x2, model.y2, model.z2);
+                    model.excitation_node_3D = get_coordinate_iD_3D (model.width, model.height, model.length, npml, model.dl, model.x1, model.y1, model.z1);
+                    model.output_node_3D = get_coordinate_iD_3D (model.width, model.height, model.length, npml, model.dl, model.x2, model.y2, model.z2);
                 }
             }
         }
@@ -365,15 +365,15 @@ void sim_handler::Display_simulation_details_2D(int i)
             else if( model.FSS )
             {
                 SCN_mesh->insert_FSS_square(2.5,model.length/2);
-                model.excitation_node_3D = return_coordinates_WG (model.width, model.height, model.length, npml, model.dl,0,0, model.length/2 - 1*model.dl); // fixed point of excitation always 10 cells from FSS
-                model.output_node_3D = return_coordinates_WG (model.width, model.height, model.length, npml, model.dl,0,0,model.length/2 +1*model.dl);   //fixed point of observation always 10 cells from FSS - other side
+                model.excitation_node_3D = get_coordinate_iD_WG (model.width, model.height, model.length, npml, model.dl,0,0, model.length/2 - 1*model.dl); // fixed point of excitation always 10 cells from FSS
+                model.output_node_3D = get_coordinate_iD_WG (model.width, model.height, model.length, npml, model.dl,0,0,model.length/2 +1*model.dl);   //fixed point of observation always 10 cells from FSS - other side
             }
 
             else if( model.FSS_JC )
             {
                 SCN_mesh->insert_FSS_jerusalem_cross(5, model.length/2);
-                model.excitation_node_3D = return_coordinates_WG (model.width, model.height, model.length,npml, model.dl,0,0, model.length/2 - 1*model.dl); // fixed point of excitation always 10 cells from FSS
-                model.output_node_3D = return_coordinates_WG (model.width, model.height, model.length,npml, model.dl,0,0,model.length/2 +1*model.dl);   //fixed point of observation always 10 cells from FSS - other side
+                model.excitation_node_3D = get_coordinate_iD_WG (model.width, model.height, model.length,npml, model.dl,0,0, model.length/2 - 1*model.dl); // fixed point of excitation always 10 cells from FSS
+                model.output_node_3D = get_coordinate_iD_WG (model.width, model.height, model.length,npml, model.dl,0,0,model.length/2 +1*model.dl);   //fixed point of observation always 10 cells from FSS - other side
             }
 
         }
@@ -387,8 +387,8 @@ void sim_handler::Display_simulation_details_2D(int i)
     {
         float  start_x = abs(model.width-1000)/2;     // position of the naca0015 along the x axis
         //Constructing the geometry for the naca0015
-        int start_node = return_coordinates_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,start_x,model.height/2,0);      // coordinate iD for naca0015
-        int end_node = return_coordinates_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,start_x+1000,model.height/2,0);   // coordinate iD for naca0015
+        int start_node = get_coordinate_iD_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,start_x,model.height/2,0);      // coordinate iD for naca0015
+        int end_node = get_coordinate_iD_2D (model.width,model.height,model.npmlx,model.npmly,model.dl,start_x+1000,model.height/2,0);   // coordinate iD for naca0015
         shunt_node_mesh->insert_structure_Naca_x_axis(start_node,end_node,naca_f(0.15));
 
         // Can change this to observe at the opposite end.
@@ -471,7 +471,7 @@ void sim_handler::Begin_TLM_simulation_SCN(int i,string directory_string)
 //........................................................TLM TIME STEPPING ALGORITHM..................................................
 //........................................................................................................................
 
-    cout<< ".................THE TLM ALGORITHM: EXCITE->SCATTER->CONNECT->OUTPUT............"<<endl;
+    cout<< ".......THE TLM ALGORITHM: EXCITE->SCATTER->CONNECT->OUTPUT......"<<endl;
 
 //2D SCN simulation
     if(Nz==1)        cout<<" THIS PORTION OF CODE REQUIRES YOUR ATTENTION AND HAS BEEN COMMENTED OUT " <<endl;
@@ -484,7 +484,6 @@ void sim_handler::Begin_TLM_simulation_SCN(int i,string directory_string)
         SCN_mesh->TLM_simulation1( model.total_steps, model.tfactor, model.output_node_3D, model.excitation_node_3D, model.Zz1, model.Zz2, model.Zy1, model.Zy2, model.Zx1,
                                    model.Zx2, f_gaussian(model.sin_freq,model.gauss_bw,model.dt), model.excitation_type,0,true ); //dl = 0.5
 //Print output to screen
-        cout<< ".......Print to EY field values to screen......"<<endl;
         SCN_mesh->print_Ey_output();
 
 // writing field values to file for output
@@ -496,10 +495,10 @@ void sim_handler::Begin_TLM_simulation_SCN(int i,string directory_string)
 //...........................................................................................................................
     delete SCN_mesh;
 
-    cout<< ".........................................................................................................................."<<endl;
-    cout<< ".....................................................END OF SIMULATION OF " << i << "..................................................."<<endl;
-    cout<< ".........................................................................................................................." <<endl;
-
+    cout<<endl<<endl;
+    cout<<" ................................................................"<<endl;
+    cout<< "..............END OF SIMULATION OF " << i << ".................."<<endl;
+    cout<<" ................................................................"<<endl;
 }
 
 
@@ -568,7 +567,7 @@ void sim_handler::Begin_TLM_simulation_2D(int i,string directory_string)
 //........................................................................................................................
 
 
-    cout<< ".................THE TLM ALGORITHM: EXCITE->SCATTER->CONNECT->OUTPUT............"<<endl;
+    cout<< "........THE TLM ALGORITHM: EXCITE->SCATTER->CONNECT->OUTPUT....."<<endl;
 
 
 //EXCITE->SCATTER->CONNECT->OUTPUT
@@ -588,7 +587,10 @@ void sim_handler::Begin_TLM_simulation_2D(int i,string directory_string)
 //...........................................................................................................................
     delete shunt_node_mesh;
 
-    cout<<" End of Simulation " << i <<endl<<endl<<endl;
+    cout<<endl<<endl;
+    cout<<" ................................................................"<<endl;
+    cout<< "..............END OF SIMULATION OF " << i << ".................."<<endl;
+    cout<<" ................................................................"<<endl;
 }
 
 
@@ -723,17 +725,17 @@ cout<<" here "<<sim_type<<endl;
         if( simtype ==waveguide)
         {
             // cout<<" here "<<endl;
-            excitation_node_3D = return_coordinates_WG (width,height,length,npml,dl,x1,y1,z1);
-            output_node_3D = return_coordinates_WG (width,height,length,npml,dl,x2,y2,z2);
-            centre_node = return_coordinates_WG (width,height,length,npml,dl,width/2,height/2,length/2);
+            excitation_node_3D = get_coordinate_iD_WG (width,height,length,npml,dl,x1,y1,z1);
+            output_node_3D = get_coordinate_iD_WG (width,height,length,npml,dl,x2,y2,z2);
+            centre_node = get_coordinate_iD_WG (width,height,length,npml,dl,width/2,height/2,length/2);
         }
 //Definitions for 3D cubic geometry
         if ( simtype ==cube_3D)
         {
 
-            excitation_node_3D = return_coordinates_3D (width,height,length,npml,dl,x1,y1,z1);
-            output_node_3D = return_coordinates_3D (width,height,length,npml,dl,x2,y2,z2);
-            centre_node = return_coordinates_3D (width,height,length,npml,dl,width/2,height/2,length/2);
+            excitation_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x1,y1,z1);
+            output_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x2,y2,z2);
+            centre_node = get_coordinate_iD_3D (width,height,length,npml,dl,width/2,height/2,length/2);
         }
 
 /*
@@ -823,8 +825,8 @@ cout<<" here "<<sim_type<<endl;
         {
             excitation_node_3D = SCN_mesh->get_true_centre_node();  // setting the excitation at the centre node
             output_node_3D = excitation_node_3D;
-            //excitation_node_3D = return_coordinates_3D (width,height,length,npml,dl,x1,y1,z1);
-            // output_node_3D = return_coordinates_3D (width,height,length,npml,dl,x2,y2,z2);
+            //excitation_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x1,y1,z1);
+            // output_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x2,y2,z2);
 
             //SCN_mesh->print_WG_plane_par(int(length/dl),2);
             if (dipole)
@@ -864,8 +866,8 @@ cout<<" here "<<sim_type<<endl;
                 //excite domain at single node
                 if( excitation_type ==-1)
                 {
-                    excitation_node_3D = return_coordinates_3D (width,height,length,npml,dl,x1,y1,z1);
-                    output_node_3D = return_coordinates_3D (width,height,length,npml,dl,x2,y2,z2);
+                    excitation_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x1,y1,z1);
+                    output_node_3D = get_coordinate_iD_3D (width,height,length,npml,dl,x2,y2,z2);
                 }
             }
         }
@@ -887,15 +889,15 @@ cout<<" here "<<sim_type<<endl;
             else if( FSS )
             {
                 SCN_mesh->insert_FSS_square(2.5,length/2);
-                excitation_node_3D = return_coordinates_WG (width,height,length,npml,dl,0,0,length/2 - 1*dl); // fixed point of excitation always 10 cells from FSS
-                output_node_3D = return_coordinates_WG (width,height,length,npml,dl,0,0,length/2 +1*dl);   //fixed point of observation always 10 cells from FSS - other side
+                excitation_node_3D = get_coordinate_iD_WG (width,height,length,npml,dl,0,0,length/2 - 1*dl); // fixed point of excitation always 10 cells from FSS
+                output_node_3D = get_coordinate_iD_WG (width,height,length,npml,dl,0,0,length/2 +1*dl);   //fixed point of observation always 10 cells from FSS - other side
             }
 
             else if( FSS_JC )
             {
                 SCN_mesh->insert_FSS_jerusalem_cross(5,length/2);
-                excitation_node_3D = return_coordinates_WG (width,height,length,npml,dl,0,0,length/2 - 1*dl); // fixed point of excitation always 10 cells from FSS
-                output_node_3D = return_coordinates_WG (width,height,length,npml,dl,0,0,length/2 +1*dl);   //fixed point of observation always 10 cells from FSS - other side
+                excitation_node_3D = get_coordinate_iD_WG (width,height,length,npml,dl,0,0,length/2 - 1*dl); // fixed point of excitation always 10 cells from FSS
+                output_node_3D = get_coordinate_iD_WG (width,height,length,npml,dl,0,0,length/2 +1*dl);   //fixed point of observation always 10 cells from FSS - other side
             }
 
         }
@@ -995,8 +997,8 @@ delete SCN_mesh;
         int exctn_nd = 0;
         int obsrv_nd = 0;
 
-        exctn_nd = return_coordinates_2D (width,height,npmlx,npmly,dl,x1,y1,dl);
-        obsrv_nd = return_coordinates_2D (width,height,npmlx,npmly,dl,x2,y2,dl);
+        exctn_nd = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,x1,y1,dl);
+        obsrv_nd = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,x2,y2,dl);
 
         //Construct Geometry handler
         mesh_handler_2D *Automate_2D;
@@ -1007,7 +1009,7 @@ delete SCN_mesh;
         {
             if( int(width / dl +0.5)%2 == 0 ) width = width + dl;
             if( int(height / dl + 0.5)%2 == 0 )height = height + dl;
-            int mid_node = return_coordinates_2D (width,height,npmlx,npmly,dl,width/2,height/2,0);
+            int mid_node = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,width/2,height/2,0);
             exctn_nd = mid_node;
             obsrv_nd = mid_node;
             int ant_len_no =  0.25*antenna_length /dl + 0.5-5 ;
@@ -1021,8 +1023,8 @@ delete SCN_mesh;
 //Variables for the Naca0015
         float  start_x = abs(width-1000)/2;     //width distance to naca0015
         //Constructing the geometry for the naca0015
-        int start_node = return_coordinates_2D (width,height,npmlx,npmly,dl,start_x,height/2,0);      // for naca0015
-        int end_node = return_coordinates_2D (width,height,npmlx,npmly,dl,start_x+1000,height/2,0);   //for naca0015
+        int start_node = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,start_x,height/2,0);      // for naca0015
+        int end_node = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,start_x+1000,height/2,0);   //for naca0015
 
 //FIXES THE POINT OF EXCITATION IN THE NACA0015 - variable d denotes the distance from the object.
         int d = 10;
@@ -1030,8 +1032,8 @@ delete SCN_mesh;
         {
             float  start_x = abs(width-1000)/2;     //width distance to naca0015
             //Constructing the geometry for the naca0015
-            int start_node = return_coordinates_2D (width,height,npmlx,npmly,dl,start_x,height/2,0);      // for naca0015
-            int end_node = return_coordinates_2D (width,height,npmlx,npmly,dl,start_x+1000,height/2,0);   //for naca0015
+            int start_node = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,start_x,height/2,0);      // for naca0015
+            int end_node = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,start_x+1000,height/2,0);   //for naca0015
             Automate_2D->insert_structure_Naca_x_axis(start_node,end_node,naca_f(0.15));
 
             d=10; // distance from Naca0015
@@ -1042,7 +1044,7 @@ delete SCN_mesh;
                 d = 0.5*( int (width/dl +0.5) - int(1000/dl + 0.5) )-1;     // changes the variable d because the distance from the airfoil to the boundary is less than 10nodes away.
             }
 
-            if(excitation_type != -1 ) exctn_nd = return_coordinates_2D (width,height,npmlx,npmly,x1,dl,dl,0); //start_node - d;
+            if(excitation_type != -1 ) exctn_nd = get_coordinate_iD_2D (width,height,npmlx,npmly,x1,dl,dl,0); //start_node - d;
             obsrv_nd = exctn_nd;
             // Can change this to observe at the opposite end.
             //obsrv_nd = end_node + d
@@ -1101,16 +1103,16 @@ delete SCN_mesh;
             if( naca0015 )
             {
                 start_x = start_x - 5*dl;
-                exctn_nd = return_coordinates_2D (width,height,npmlx,npmly,dl,x1,dl,dl) ; // exciting from  left to right
+                exctn_nd = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,x1,dl,dl) ; // exciting from  left to right
             }
-            else exctn_nd = return_coordinates_2D (width,height,npmlx,npmly,dl,2*dl,dl,dl) ;
+            else exctn_nd = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,2*dl,dl,dl) ;
             obsrv_nd = exctn_nd;    // line source
         }
 
         if( exct_type == -2)
         {
-            exctn_nd = return_coordinates_2D (width,height,npmlx,npmly,dl,dl,y1,dl);
-            obsrv_nd = return_coordinates_2D (width,height,npmlx,npmly,dl,dl,y2,dl);
+            exctn_nd = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,dl,y1,dl);
+            obsrv_nd = get_coordinate_iD_2D (width,height,npmlx,npmly,dl,dl,y2,dl);
             cout<< " TE10  excitation in "<<exctn_nd<<endl;
             cout<< " output node observed in "<<obsrv_nd <<endl;
         }
