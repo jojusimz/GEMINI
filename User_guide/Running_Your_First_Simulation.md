@@ -2,11 +2,11 @@
 
 * Successfully compile GEMINI into an .exe
 
-* Define your Simulation Model by editing **SIM.FILE** 
+* Define your Model parameters by editing a copy of **SIM.FILE**. (Edit SIMfile.csv )
 
-* Ensure **SIM.FILE** is in the same directory as the compiled file
+* Move the **SIM.FILE** into the same directory as the compiled code.
 
-* Ensure the *Results_directory* is also created in the same directory as the compiled file.
+* Create a folder called *Results_directory* in the same directory as the compiled file.
 
 * Run the following command in the BASH shell
 
