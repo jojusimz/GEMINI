@@ -35,7 +35,7 @@ int simulation_start_up(string & _sim_file, string & _results_directory)
     unsigned int num_sim_to_run (1);
 
     _sim_file = "SIMfile.csv";                    //default simulation file
-    _results_directory = "Results_directory";                    //default name of results directory
+    _results_directory = "Results";                    //default name of results directory
 
     cout<<"....";
     cin>> usr_input;
