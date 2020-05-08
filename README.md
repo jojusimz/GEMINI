@@ -54,7 +54,7 @@ The spatial domain is discretized into a matrix of TLM cells and an explicit tim
 
 
 
-# How GEMINI Works 
+# How GEMINI Works (At A Glance)
 
 *At a glance*
 ![image](https://user-images.githubusercontent.com/60849864/80833434-6d41f700-8be6-11ea-800b-de9427535782.png)
