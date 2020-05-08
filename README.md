@@ -2,8 +2,8 @@
 **CONTENT**
 
 - [GEMINI: A TIME DOMAIN TLM ELECTROMAGNETIC FIELD SIMULATOR DEVELOPED IN C++](#gemini-a-time-domain-tlm-electromagnetic-field-simulator-developed-in-c)
-- [The TLM Method](#the-tlm-method)
-- [How GEMINI Works](#how-gemini-works)
+- [The TLM Method](#the-tlm-method-at-a-glance)
+- [How GEMINI Works](#how-gemini-works-at-a-glance)
 - [Features](#features)
 - [C++ Source Code Features](#c-source-code-features)
 - [Geometry/Material Features](#geometrymaterial-features)
