@@ -1,0 +1,49 @@
+.PHONY: simulate simulate_nohup
+
+all: MAKE_GEMINI
+
+MAKE_GEMINI: main.o sim_handler.o mesh_handler_scn.o mesh_handler_hscn.o mesh_handler_2D.o SCN_node.o HSCN_node.o shunt_node.o gemini_utility.o sim_param.o
+	g++ -O4 -o MAKE_GEMINI main.o sim_handler.o mesh_handler_scn.o mesh_handler_hscn.o mesh_handler_2D.o SCN_node.o HSCN_node.o shunt_node.o gemini_utility.o sim_param.o -fopenmp
+
+# The main.o target can be written more simply
+
+main.o: main.cpp sim_handler.h gemini_utility.h
+	g++ -O4 -o main.o main.cpp -c
+
+sim_handler.o: sim_handler.cpp sim_handler.h mesh_handler_scn.h mesh_handler_hscn.h mesh_handler_2D.h SCN_node.h HSCN_node.h shunt_node.h gemini_utility.h sim_param.h
+	g++ -O4 -o sim_handler.o sim_handler.cpp -fopenmp -c
+
+mesh_handler_scn.o: mesh_handler_scn.cpp mesh_handler_scn.h SCN_node.h gemini_utility.h
+	g++ -O4 -o mesh_handler_scn.o mesh_handler_scn.cpp -fopenmp -c
+
+mesh_handler_hscn.o: mesh_handler_hscn.cpp mesh_handler_hscn.h gemini_utility.h
+	g++ -O4 -o mesh_handler_hscn.o mesh_handler_hscn.cpp -fopenmp -c
+
+mesh_handler_2D.o: mesh_handler_2D.cpp shunt_node.h gemini_utility.h
+	g++ -O4 -o mesh_handler_2D.o mesh_handler_2D.cpp -c
+
+SCN_node.o: SCN_node.cpp SCN_node.h gemini_utility.h
+	g++ -O4 -o SCN_node.o SCN_node.cpp -c
+
+HSCN_node.o: HSCN_node.cpp HSCN_node.h gemini_utility.h
+	g++ -O4 -o HSCN_node.o HSCN_node.cpp -c 
+
+shunt_node.o: shunt_node.cpp shunt_node.h gemini_utility.h
+	g++ -O4 -o shunt_node.o shunt_node.cpp -c
+
+gemini_utility.o: gemini_utility.cpp gemini_utility.h 
+	g++ -O4 -o gemini_utility.o gemini_utility.cpp -c
+
+sim_param.o: sim_param.cpp sim_param.h gemini_utility.h 
+	g++ -O4 -o sim_param.o sim_param.cpp -c
+
+RUN_GEMINI:
+	@echo "\n Beginning Simulation....."
+	$ ./MAKE_GEMINI
+
+RUN_GEMINI_nohup:
+	@echo "\n Beginning Simulation with NOHUP...."
+	$ nohup ./MAKE_GEMINI &
+
+clean:
+	rm *.txt
